@@ -1,64 +1,33 @@
-# ✈️ Flight Delay Analysis
+# 📊 SQL Scripts - Flight Delay Analysis
 
-## 🧠 Objective
-Analyze flight delays across different airlines, airports, and time periods to understand key causes of delays, discover trends, and provide insights to minimize inefficiencies in the aviation industry.
+This folder contains SQL scripts used to analyze flight delay data from a relational database.
 
-## 🛠️ Tools Used
-- **Python**: Data cleaning, exploratory data analysis (EDA), feature engineering, and visualizations using `pandas`, `matplotlib`, `seaborn`
-- **SQL**: Querying structured datasets for delay summaries and aggregations
-- **Excel**: Pivot table reports for quick ad-hoc analysis
-- **Power BI**: Interactive dashboards for trend analysis and insights
+## 📂 Files Overview
 
-## 📂 Project Structure
+### 🔧 `create_tables.sql`
+Defines the schema to store flight delay data:
+- `flights`: Stores flight-level delay details
+- `airlines`: Stores airline names and codes
+- `airports`: Stores airport names and codes
+- `dates`: Stores time dimensions (optional for warehouse-style analysis)
 
-## 📈 Key Questions Explored
+### 📥 `insert_sample_data.sql`
+Sample data to test queries and visualizations. Useful for local or offline testing.
 
-### 📌 Descriptive Analysis
-1. **Which airlines have the highest total delay time?**  
-   → Ranking carriers by total and average arrival delays.
-
-2. **What are the top causes of flight delays?**  
-   → Analyzing delay types: *Carrier*, *Weather*, *NAS*, *Security*, *Late Aircraft*.
-
-3. **Which months or years experience the most delays?**  
-   → Identifying seasonal trends and delay-heavy periods.
-
-4. **Which airports have the most total delays?**  
-   → Analyzing delay distributions across major airports.
-
-5. **Which days of the week tend to have more delays?**  
-   → Comparing delay patterns across weekdays vs weekends.
-
-### ⚖️ Comparative Insights
-6. **Compare delay patterns between two major airlines**  
-   → Delta vs United: Which experiences more carrier or weather delays?
-
-7. **Compare weather delays with NAS delays**  
-   → Scatter plots and averages for delay type severity and occurrence.
-
-8. **Which airline performs best in minimizing delays?**  
-   → Ranked by lowest average arrival delays.
-
-### 📊 Trend Analysis (Power BI/Excel Ready)
-9. **How have delays changed over the years?**  
-   → Visualize trends in delay durations from 2003 onward.
-
-10. **What is the trend of each delay type over time?**  
-    → Line plots of average monthly delays for all causes.
-
-## 📌 Insights (Sample)
-- Late Aircraft and NAS delays are the most significant contributors to overall delays.
-- Summer months and winter (Dec-Jan) often show peaks in average delay time.
-- Airports with the highest traffic volume also tend to have the most delays.
-- Delta and United show significantly different delay behavior, with weather and NAS being the key differentiators.
-
-## 📎 Future Enhancements
-- Incorporate **weather datasets** for deeper correlation.
-- Perform **predictive modeling**: e.g., will a flight be delayed?
-- Build an **interactive web dashboard** using Plotly Dash or Streamlit.
+### 📁 `queries/`
+Reusable SQL queries for different types of analysis:
+- **airline_delay_summary.sql**: Summarize delay metrics per airline
+- **airport_delay_summary.sql**: Rank airports by total delay time
+- **monthly_trends.sql**: Trends in delays by month/year
+- **delay_type_comparison.sql**: Compare delay types (e.g., NAS vs Weather)
+- **best_airline_performance.sql**: Find airlines with minimal average delays
 
 ---
 
-**Author:** Sudhanshu Mishra  
-**Tech Stack:** Python | SQL | Power BI | Excel  
-**Last Updated:** June 2025
+## 🛠️ How to Use
+
+1. Run `create_tables.sql` to initialize the database schema.
+2. (Optional) Load data using `insert_sample_data.sql`.
+3. Run queries from the `queries/` folder to generate insights.
+
+💡 These scripts were written with compatibility for **MySQL** and **PostgreSQL** in mind.
